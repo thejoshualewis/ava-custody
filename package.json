@@ -1,0 +1,22 @@
+{
+  "name": "ava-custody",
+  "private": true,
+  "version": "2.0.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:ingest\" \"npm:dev:web\"",
+    "start": "cd apps/web && npm install && npm start",
+    "build": "npm -ws run build",
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:ingest": "npm --workspace apps/ingest-worker run dev",
+    "deploy:web": "npm --workspace apps/web run deploy",
+    "deploy:ingest": "npm --workspace apps/ingest-worker run deploy",
+    "migrate:local": "wrangler d1 migrations apply ava_custody_db --local --config apps/ingest-worker/wrangler.toml",
+    "migrate:remote": "wrangler d1 migrations apply ava_custody_db --remote --config apps/ingest-worker/wrangler.toml",
+    "migrate": "npm run migrate:local && npm run migrate:remote"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

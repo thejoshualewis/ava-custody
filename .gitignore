@@ -1,0 +1,9 @@
+node_modules
+dist
+.build
+.output
+.cache
+.env*
+.DS_Store
+apps/ingest-worker/.wrangler
+apps/ingest-worker/.dev.vars

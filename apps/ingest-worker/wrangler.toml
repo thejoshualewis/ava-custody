@@ -1,0 +1,22 @@
+name = "ingest-worker"
+main = "src/index.ts"
+compatibility_date = "2025-09-12"
+
+[vars]
+# ADDRESS = ""                            # keep empty in dev/prod to avoid auto-seed surprises
+INGEST_MAX_TOKENS = "150"                 # safe default cap
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ava_custody_db"
+database_id = "43212a96-fabd-49eb-a191-a9d9f7f0c612"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "b555289f316d4407b9dba934f86f8080"
+
+[triggers]
+crons = [ "0 * * * *" ]                   # optional if you add a backfill later
+
+[observability]
+enabled = true
