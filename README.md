@@ -45,19 +45,19 @@ wrangler deploy --config wrangler.toml --name ingest-worker
 On first deploy you will be prompted to register a workers.dev subdomain. Once registered, your Worker is reachable at:
 
 ```
-https://ingest-worker.<your-subdomain>.workers.dev
+https://ingest-worker.ava-custody-demo.workers.dev
 ```
 
 Test it with:
 
 ```
-curl "https://ingest-worker.<your-subdomain>.workers.dev/ingest?address=0x1f9840a85d5af5bf1d1762f925bdaddc4201f984&limit=150"
+curl "https://ingest-worker.ava-custody-demo.workers.dev/ingest?address=0x1f9840a85d5af5bf1d1762f925bdaddc4201f984&limit=150"
 ```
 
 and
 
 ```
-curl "https://ingest-worker.<your-subdomain>.workers.dev/portfolio?address=0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+curl "https://ingest-worker.ava-custody-demo.workers.dev/portfolio?address=0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
 ```
 
 The frontend is built with Vite. Run `npm run build` inside `apps/web` to produce a `dist/` folder, then deploy with Cloudflare Pages:
